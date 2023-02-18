@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(17, 17, 66);
+    /* color: aliceblue; */
+}
+
+.centreDiv {
+    width: 65%;
+    margin: auto auto;
+}
+
+.myBtn {
+    background-color: rgb(5, 22, 82) !important;
+    color: aliceblue !important;
+    margin-left: 5px !important;
+}
+
+.myBtn:hover {
+    background-color: green !important;
+    color: aliceblue !important;
+    margin-left: 5px !important;
+}
+
+.myBtn2 {
+    color: red !important;
+    text-align: left !important;
+    margin: 0px;
+}
+
+.myBtn3 {
+    color: rgb(45, 19, 243) !important;
+    border-radius: 10px solid black !important;
+}
