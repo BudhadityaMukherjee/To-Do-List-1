@@ -7,12 +7,6 @@ import "./TodoList.css";
 export default function Listing(props) {
   const [line, setLine] = useState(false);
 
-  const updateItems = (event, index) => {
-    console.log(index);
-    console.log(event.target.value);
-    let newArr = [];
-  };
-
   return (
     <>
       <div>
@@ -25,7 +19,9 @@ export default function Listing(props) {
           <DeleteIcon />
         </Button>
 
-        <Button onClick={updateItems} className="myBtn3">
+        <Button onClick={() => {
+            return props.update(props.id);
+        }} className="myBtn3">
           <EditIcon/>
         </Button>
 

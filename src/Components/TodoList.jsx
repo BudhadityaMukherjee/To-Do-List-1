@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./TodoList.css";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
@@ -13,13 +13,12 @@ export default function TodoList() {
     setNewItem((previous) => {
       if (item.trim() !== "") {
         setItem("");
-        return [...previous, item];
+        return [...previous, { text: item, id: new Date().getTime() }];
       } else {
         setItem("");
         return [...previous];
       }
     });
-    //To return an ampty array in the input field
   };
 
   const addEvent = (event) => {
@@ -28,7 +27,17 @@ export default function TodoList() {
 
   const clearAll = () => {
     setNewItem([]);
-  }
+  };
+
+  const updateItems = (index) => {
+    //Deleting item from list
+    setNewItem(() => {
+      return newItem.filter((val) => {
+          if(val.id === index) return setItem(val.text);
+        return val.id !== index;
+      });
+    });
+  };
 
   return (
     <>
@@ -56,14 +65,20 @@ export default function TodoList() {
               {newItem.map((currVal, index) => {
                 return (
                   <>
-                    <Listing text={currVal} key={index} />
+                    <Listing
+                      text={currVal.text}
+                      id={currVal.id}
+                      update={updateItems}
+                    />
                   </>
                 );
               })}
             </ul>
           </form>
 
-          <Button onClick={clearAll} variant="contained" className="myBtn">Clear All</Button>
+          <Button onClick={clearAll} variant="contained" className="myBtn">
+            Clear All
+          </Button>
         </div>
       </div>
     </>
