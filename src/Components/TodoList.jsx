@@ -5,9 +5,19 @@ import AddIcon from "@mui/icons-material/Add";
 import Listing from "./Listing";
 
 export default function TodoList() {
-  const [item, setItem] = useState("");
-  const [newItem, setNewItem] = useState([]);
+  //Function to fetch the local storage
+  const getItem = () => {
+    let list = localStorage.getItem('newItem');
+    console.log('list:', list);
 
+    if(list) return JSON.parse(localStorage.getItem('newItem'));
+    else return [];
+  }
+  
+  const [item, setItem] = useState("");
+  const [newItem, setNewItem] = useState(getItem());
+
+  
   const addItem = () => {
     //To save the previous inputs and also add new inputs to the array
     setNewItem((previous) => {
@@ -20,6 +30,11 @@ export default function TodoList() {
       }
     });
   };
+
+  //Using local storage
+  useEffect(() => {
+    localStorage.setItem("newItem", JSON.stringify(newItem));
+  }, [newItem]);
 
   const addEvent = (event) => {
     setItem(event.target.value);
