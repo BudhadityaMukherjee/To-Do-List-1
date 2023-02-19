@@ -12,6 +12,7 @@ body {
     background-color: rgb(5, 22, 82) !important;
     color: aliceblue !important;
     margin-left: 5px !important;
+    border: 1px solid black !important;
 }
 
 .myBtn:hover {
@@ -24,9 +25,22 @@ body {
     color: red !important;
     text-align: left !important;
     margin: 0px;
+    border: 1px solid black !important;
+    border-radius: 70px !important;
+    padding: 0px px !important;
 }
 
 .myBtn3 {
     color: rgb(45, 19, 243) !important;
-    border-radius: 10px solid black !important;
+    background-color: rgb(137, 190, 236) !important;
+    border: 1px solid black !important;
+    border-radius: 20px !important;
+    padding: 0px 0px !important;
+    margin: 5px 5px !important;
+    height: 30px !important;
+}
+
+.myBtn3:hover {
+    background-color: green !important;
+    color: aliceblue !important;
 }
