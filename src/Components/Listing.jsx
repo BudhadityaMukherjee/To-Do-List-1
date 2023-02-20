@@ -13,7 +13,7 @@ export default function Listing(props) {
         <Button
           className="d-inline myBtn2"
           onClick={() => {
-            setLine(true);
+            document.getElementById('list').style ={textDecoration:"line-through"}
           }}
         >
           <DeleteIcon />
@@ -27,7 +27,8 @@ export default function Listing(props) {
 
         <li
           className="d-inline"
-          style={{ textDecoration: line ? "line-through" : "none" }}
+          id="list"
+          style={{ textDecoration:"none" }}
         >
           {props.text}
         </li>
